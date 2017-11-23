@@ -1,0 +1,24 @@
+---
+
+management:
+  security:
+    enabled: true
+    roles: SUPERUSER
+
+security:
+  user:
+    name: admin
+    password: ${admin_password}
+
+endpoints:
+  hypermedia:
+    enabled: true
+
+nmt:
+  metrics:
+    enabled: ${nmt_enabled:false}
+
+
+logging:
+  level:
+    root: INFO

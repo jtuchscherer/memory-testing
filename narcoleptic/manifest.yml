@@ -2,3 +2,11 @@ name: narcoleptic
 random-route: true
 path: target/narcoleptic.jar
 memory: 1024m
+env:
+  nmt_enabled: true
+  admin_password: 
+  JAVA_OPTS: >
+    -XX:NativeMemoryTracking=summary
+    -XX:+PrintHeapAtGC
+    -XX:+PrintGCDetails
+    -XX:+PrintGCTimeStamps

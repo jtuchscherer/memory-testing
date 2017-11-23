@@ -1,21 +1,14 @@
 name: devourer
 random-route: true
 path: target/devourer.jar
-memory: 512m
+memory: 756m
 buildpack: https://github.com/cloudfoundry/java-buildpack.git
 env:
-  JAVA_OPTS: >-
-    -XX:InitialCodeCacheSize=16m
-    -XX:ReservedCodeCacheSize=16m
-    -XX:+AlwaysPreTouch
-  #JBP_LOG_LEVEL: DEBUG
-  JBP_CONFIG_JMX: |-
-    enabled: false
-  MALLOC_ARENA_MAX: 2
-  JBP_CONFIG_OPEN_JDK_JRE: |-
-    memory_calculator:
-      memory_sizes:
-        heap: 48m
-        metaspace: 48m
-        permgen: 48m
-        stack: 256k
+  nmt_enabled: true
+  api_url: https://narcoleptic-laboured-profusion.cfapps.io/provide
+  admin_password: 
+  JAVA_OPTS: >
+    -XX:NativeMemoryTracking=summary
+    -XX:+PrintHeapAtGC
+    -XX:+PrintGCDetails
+    -XX:+PrintGCTimeStamps
